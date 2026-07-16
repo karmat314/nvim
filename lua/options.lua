@@ -1,10 +1,12 @@
 do
   vim.loader.enable()
 
+  vim.g.netrw_banner = 0
+
   vim.g.mapleader = ' '
   vim.g.maplocalleader = ' '
 
-  vim.g.have_nerd_font = true 
+  vim.g.have_nerd_font = true
 
   vim.o.number = true
   vim.o.relativenumber = true
@@ -19,6 +21,9 @@ do
 
   -- Enable break indent
   vim.o.breakindent = true
+
+  vim.opt.swapfile = false
+  vim.opt.backup = false
 
   -- Enable undo/redo changes even after closing and reopening a file
   vim.o.undofile = true
@@ -57,4 +62,3 @@ do
   -- instead raise a dialog asking if you wish to save the current file(s)
   vim.o.confirm = true
 end
-
