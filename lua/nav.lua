@@ -79,4 +79,15 @@ do
   )
 
   vim.keymap.set('n', '<leader>sn', function() builtin.find_files { cwd = vim.fn.stdpath 'config', follow = true } end, { desc = '[S]earch [N]eovim files' })
+
+  local arrow_plugins = {
+    gh 'otavioschwanck/arrow.nvim',
+    gh 'nvim-tree/nvim-web-devicons',
+  }
+  vim.pack.add(arrow_plugins)
+  require('arrow').setup {
+    show_icons = true,
+    leader_key = ';', -- Recommended to be a single key
+    buffer_leader_key = 'm', -- Per Buffer Mappings
+  }
 end
