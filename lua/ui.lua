@@ -32,15 +32,21 @@ do
 
   -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
   vim.pack.add { gh 'folke/tokyonight.nvim' }
-  ---@diagnostic disable-next-line: missing-fields
+
   require('tokyonight').setup {
+    style = 'night', -- or "storm", "moon"
+    transparent = true, -- Main switch
+    terminal_colors = true,
     styles = {
-      comments = { italic = false }, -- Disable italics in comments
+      comments = { italic = false },
+      sidebars = 'transparent',
+      floats = 'transparent',
     },
+    -- Optional: make inactive windows also transparent
+    -- dim_inactive = false,
   }
 
   vim.cmd.colorscheme 'tokyonight-night'
-
   -- Highlight todo, notes, etc in comments
   vim.pack.add { gh 'folke/todo-comments.nvim' }
   require('todo-comments').setup { signs = false }
