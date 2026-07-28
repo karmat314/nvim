@@ -51,6 +51,20 @@ do
   vim.pack.add { gh 'folke/todo-comments.nvim' }
   require('todo-comments').setup { signs = false }
 
+  -- Animated cursor trail
+  vim.pack.add { gh 'sphamba/smear-cursor.nvim' }
+  require('smear_cursor').setup {
+    stiffness = 0.8,
+    trailing_stiffness = 0.2,
+    stiffness_insert_mode = 0.7,
+    damping = 0.95,
+    distance_stop_animating = 0.5,
+  }
+
+  vim.pack.add { gh 'karb94/neoscroll.nvim' }
+  require('neoscroll').setup {}
+
+
   -- [[ mini.nvim ]]
   --  A collection of various small independent plugins/modules
   vim.pack.add { gh 'nvim-mini/mini.nvim' }

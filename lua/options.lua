@@ -11,16 +11,14 @@ do
   vim.o.number = true
   vim.o.relativenumber = true
 
-  -- Enable mouse mode, can be useful for resizing splits for example!
-  vim.o.mouse = 'a'
-
   -- Don't show the mode, since it's already in the status line
   vim.o.showmode = false
 
- vim.schedule(function() vim.o.clipboard = 'unnamedplus' end)
+  vim.opt.clipboard:append 'unnamedplus'
 
   -- Enable break indent
-  vim.o.breakindent = true
+  vim.opt.wrap = false
+  vim.opt.smartindent = true
 
   vim.opt.swapfile = false
   vim.opt.backup = false
@@ -54,6 +52,7 @@ do
 
   -- Show which line your cursor is on
   vim.o.cursorline = true
+  vim.opt.startofline = false
 
   -- Minimal number of screen lines to keep above and below the cursor.
   vim.o.scrolloff = 10
