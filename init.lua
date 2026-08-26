@@ -1,10 +1,11 @@
-require('options')
-require('keymaps')
-require('pack')
-require('ui')
-require('nav')
-require('autocomplete')
-require('treesitter')
-require('format')
-require('lsp')
+require 'options'
+require 'keymaps'
+require 'pack'
+require 'ui'
+require 'nav'
+require 'autocomplete'
+require 'treesitter'
+require 'format'
+require 'lsp'
+require 'git'
 -- vim: ts=2 sts=2 sw=2 et
