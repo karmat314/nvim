@@ -26,6 +26,7 @@ do
       { '<leader>s', group = '[S]earch', mode = { 'n', 'v' } },
       { '<leader>t', group = '[T]oggle' },
       { '<leader>h', group = 'Git [H]unk', mode = { 'n', 'v' } }, -- Enable gitsigns recommended keymaps first
+      { '<leader>g', group = '[G]it' },
       { 'gr', group = 'LSP Actions', mode = { 'n' } },
     },
   }
@@ -132,6 +133,8 @@ do
   -- - sd'   - [S]urround [D]elete [']quotes
   -- - sr)'  - [S]urround [R]eplace [)] [']
   require('mini.surround').setup()
+
+  require('mini.indentscope').setup()
 
   local statusline = require 'mini.statusline'
   -- Set `use_icons` to true if you have a Nerd Font
