@@ -14,7 +14,19 @@ do
   -- Don't show the mode, since it's already in the status line
   vim.o.showmode = false
 
-  vim.opt.clipboard:append 'unnamedplus'
+  -- Only yanks go to the macOS clipboard. 'unnamedplus' also sent deletes and
+  -- plugin register writes (e.g. netrw restoring @@ on every listing).
+  -- Paste from macOS clipboard with <D-v> or "+p.
+  vim.api.nvim_create_autocmd('TextYankPost', {
+    desc = 'Copy yanks to the system clipboard',
+    group = vim.api.nvim_create_augroup('yank-to-clipboard', { clear = true }),
+    callback = function()
+      -- Skip yanks into named registers ("ayy) so they don't clobber the clipboard.
+      if vim.v.event.operator == 'y' and vim.v.event.regname == '' then
+        vim.fn.setreg('+', vim.fn.getreg('"'), vim.fn.getregtype('"'))
+      end
+    end,
+  })
 
   -- Enable break indent
   vim.opt.wrap = false
